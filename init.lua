@@ -59,5 +59,15 @@ configs.setup({
 })
 
 -- ColorScheme
-require("catppuccin").setup()
+require("catppuccin").setup({
+  custom_highlights = function(colors)
+    return {
+      Normal = { bg = "#000000" }, 
+    }
+  end,
+
+  show_end_of_buffer = false,
+})
+
 vim.cmd.colorscheme "catppuccin"
+
