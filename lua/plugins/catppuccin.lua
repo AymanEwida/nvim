@@ -6,15 +6,16 @@ return {
         require("catppuccin").setup({
             show_end_of_buffer = false,
 
-            custom_highlights = function(colors)
+            custom_highlights = function()
                 return {
-                    Normal = { bg = "#000000" }, 
+                    Normal = { bg = "#000000" },
                     NormalNC = { bg = "#000000" },
+                    NormalFloat = { bg = "#000000" },
                     EndOfBuffer = { fg = "#000000" },
 
                     -- Telescope
                     TelescopeNormal = { bg = "#000000" },
-                    TelescopeBorder = { fg = "#ffffff", bg = "#000000" }, 
+                    TelescopeBorder = { fg = "#ffffff", bg = "#000000" },
 
                     TelescopePromptNormal = { bg = "#000000" },
                     TelescopePromptBorder = { fg = "#ffffff", bg = "#000000" },
