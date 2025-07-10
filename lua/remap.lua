@@ -9,7 +9,7 @@ vim.keymap.set("n", "J", "mzJ`z", {})
 vim.keymap.set("n", "<C-d>", "<C-d>zz", {})
 vim.keymap.set("n", "<C-u>", "<C-u>zz", {})
 vim.keymap.set({ "n", "v" }, "n", "nzzzv", {})
-vim.keymap.set({ "n", "v" }, "N", "nzzzv", {})
+vim.keymap.set({ "n", "v" }, "N", "Nzzzv", {})
 
 vim.keymap.set({ "n", "v" }, "<leader>y", "\"*y", {})
 vim.keymap.set("n", "<leader>Y", "\"*Y", {})
