@@ -6,8 +6,9 @@ return {
 
         configs.setup({
             ensure_installed = { "lua", "javascript", "rust" },
+            auto_install = true,
             highlight = { enable = true },
-            indent = { enable = true }, 
+            indent = { enable = true },
         })
     end
 }

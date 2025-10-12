@@ -3,15 +3,15 @@ return {
         "williamboman/mason.nvim",
         config = function()
             require("mason").setup()
-        end
+        end,
     },
     {
         "williamboman/mason-lspconfig.nvim",
         config = function()
             require("mason-lspconfig").setup({
-                ensure_installed = { "lua_ls", "ts_ls", "rust_analyzer" }
+                ensure_installed = { "lua_ls", "ts_ls", "rust_analyzer", "gopls" },
             })
-        end
+        end,
     },
     {
         "neovim/nvim-lspconfig",
@@ -29,14 +29,35 @@ return {
             })
 
             lspconfig.rust_analyzer.setup({
+                settings = {
+                    ["rust_analyzer"] = {
+                        cargo = { allFeatures = true },
+                        check = { command = "clippy" },
+                        rustfmt = true,
+                    },
+                },
+
                 capabilities = capabilities,
             })
 
+            lspconfig.gopls.setup({
+                settings = {
+                    gopls = {
+                        gofumpt = true,
+                        staticcheck = true,
+                    },
+                },
 
-            vim.keymap.set('n', 'K', vim.lsp.buf.hover, {})
-            vim.keymap.set('n', 'gd', vim.lsp.buf.definition, {})
-            vim.keymap.set({'n', 'v'}, '<leader>ca', vim.lsp.buf.code_action, {})
-        end
-    }
+                flags = {
+                    debounce_text_changes = 150,
+                },
+
+                capabilities = capabilities,
+            })
+
+            vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
+            vim.keymap.set("n", "gd", vim.lsp.buf.definition, {})
+            vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, {})
+        end,
+    },
 }
-
